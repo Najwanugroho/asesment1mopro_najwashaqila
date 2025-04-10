@@ -1,3 +1,21 @@
 <resources>
-    <string name="app_name">asesment1_mopro_najwashaqilaisnan_607062300125</string>
+    <string name="app_name">Kalkulator Kecepatan</string>
+    <string name="speed_intro">Masukkan jarak (km) dan waktu yang diperlukan untuk menghitung kecepatan.</string>
+    <string name="gambar">Gambar</string>
+    <string name="logo_content_desc">Logo App</string>
+    <string name="jarak">Jarak</string>
+    <string name="waktu">Waktu</string>
+    <string name="satuan_jam">jam</string>
+    <string name="satuan_menit">menit</string>
+    <string name="kecepatan_x" formatted="true">Kecepatan: %1$.2f km/jam</string>
+    <string name="pilih_satuan">Pilih satuan waktu:</string>
+    <string name="hitung">Hitung Kecepatan</string>
+    <string name="kecepatan_hasil">Kecepatan: %1$.2f km/jam</string>
+    <string name="kecepatan_hasil_sederhana">Kecepatan: %1$s km/jam</string>
+    <string name="input_invalid">Input tidak valid!</string>
+    <string name="bagikan">Bagikan</string>
+    <string name="bagikan_template" formatted="true">Jarak: %1$s km\nWaktu: %2$s jam\n\nKecepatan: %3$.2f km/jam</string>
+    <string name="tentang_aplikasi">Tentang Aplikasi</string>
+    <string name="copyright">Kalkulator Kecepatan adalah aplikasi Android untuk menghitung kecepatan berdasarkan jarak yang ditempuh dan waktu yang diperlukan.\n\nAplikasi ini dibuat untuk kelas Pemrograman untuk Perangkat Bergerak 1.\n\nCopyright© 2024-2025 Najwa Shaqila Isna Nugroho-607062300125.\nAll rights reserved.</string>
+    <string name="kembali">Kembali</string>
 </resources>
