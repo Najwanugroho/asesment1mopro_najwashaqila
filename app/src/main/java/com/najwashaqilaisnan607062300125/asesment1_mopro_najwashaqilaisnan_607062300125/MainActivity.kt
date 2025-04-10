@@ -5,8 +5,6 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.layout.*
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.outlined.Info
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
@@ -41,10 +39,7 @@ fun MainScreen(modifier: Modifier = Modifier) {
     Scaffold(
         topBar = {
             TopAppBar(
-                title = { Text("Kalkulator Kecepatan") },
-                actions = {
-                    // Nanti bisa ditambah tombol info
-                }
+                title = { Text("Kalkulator Kecepatan") }
             )
         }
     ) { innerPadding ->
@@ -60,7 +55,8 @@ fun MainScreen(modifier: Modifier = Modifier) {
                 onValueChange = { jarak = it },
                 label = { Text("Jarak (km)") },
                 singleLine = true,
-                modifier = Modifier.fillMaxWidth()
+                modifier = Modifier.fillMaxWidth(),
+                isError = jarak.isNotEmpty() && jarak.toFloatOrNull() == null
             )
 
             OutlinedTextField(
@@ -68,7 +64,8 @@ fun MainScreen(modifier: Modifier = Modifier) {
                 onValueChange = { waktu = it },
                 label = { Text("Waktu") },
                 singleLine = true,
-                modifier = Modifier.fillMaxWidth()
+                modifier = Modifier.fillMaxWidth(),
+                isError = waktu.isNotEmpty() && waktu.toFloatOrNull() == null
             )
 
             Text("Pilih satuan waktu:")
