@@ -33,6 +33,8 @@ fun MainScreen(modifier: Modifier = Modifier) {
     var jarak by remember { mutableStateOf("") }
     var waktu by remember { mutableStateOf("") }
     var selectedWaktuSatuan by remember { mutableStateOf("jam") }
+    var hasil by remember { mutableStateOf("") }
+    var error by remember { mutableStateOf("") }
 
     val satuanOptions = listOf("jam", "menit")
 
@@ -41,7 +43,7 @@ fun MainScreen(modifier: Modifier = Modifier) {
             TopAppBar(
                 title = { Text("Kalkulator Kecepatan") },
                 actions = {
-                    // nanti bisa isi icon info di sini
+                    // Nanti bisa ditambah tombol info
                 }
             )
         }
@@ -78,6 +80,34 @@ fun MainScreen(modifier: Modifier = Modifier) {
                     )
                     Text(text = satuan)
                 }
+            }
+
+            Button(
+                onClick = {
+                    val jarakKm = jarak.toFloatOrNull()
+                    val waktuValue = waktu.toFloatOrNull()
+
+                    if (jarakKm == null || waktuValue == null || waktuValue == 0f) {
+                        error = "Input tidak valid atau waktu tidak boleh 0"
+                        hasil = ""
+                    } else {
+                        val waktuDalamJam = if (selectedWaktuSatuan == "menit") waktuValue / 60 else waktuValue
+                        val kecepatan = jarakKm / waktuDalamJam
+                        hasil = "Kecepatan: %.2f km/jam".format(kecepatan)
+                        error = ""
+                    }
+                },
+                modifier = Modifier.fillMaxWidth()
+            ) {
+                Text("Hitung Kecepatan")
+            }
+
+            if (error.isNotEmpty()) {
+                Text(text = error, color = MaterialTheme.colorScheme.error)
+            }
+
+            if (hasil.isNotEmpty()) {
+                Text(text = hasil, style = MaterialTheme.typography.headlineSmall)
             }
         }
     }
